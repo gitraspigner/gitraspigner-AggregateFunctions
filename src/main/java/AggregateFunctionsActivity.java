@@ -48,20 +48,20 @@ public class AggregateFunctionsActivity {
          */
         String sql = FileUtil.parseSQLFile("problem1.sql");
 
-        double average = 0.0;
+        double sum = 0.0;
         try {
             Connection connection = ConnectionUtil.getConnection();
             Statement s = connection.createStatement();
-            ResultSet rs =s.executeQuery(sql);
+            ResultSet rs = s.executeQuery(sql);
 
             if(rs.next()) {
-                average = rs.getDouble(1);
+                sum = rs.getDouble(1);
             }
         } catch (SQLException e) {
             System.out.println("problem1: " + e.getMessage() + '\n');
         }
 
-        return average;
+        return sum;
     }
 
     public int problem2() {
